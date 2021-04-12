@@ -1,2 +1,2 @@
 # flask-restrict
-Permission based view access Flask extension library
+Permission based view authorization Flask extension library
