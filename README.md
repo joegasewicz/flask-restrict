@@ -42,7 +42,7 @@ restrict.create_user(user, perm_name="admin")
 ```
 
 ```python
-@restrict.permission()
+@restrict.permissions
 @test_app.route("/")
 def home():
     return {

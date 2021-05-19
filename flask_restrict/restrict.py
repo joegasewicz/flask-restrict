@@ -34,7 +34,7 @@ class Restrict:
         :return:
         """
 
-    def permission(self):
+    def permissions(self):
         """
 
         :return:
