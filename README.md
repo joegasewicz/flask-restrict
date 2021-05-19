@@ -4,6 +4,8 @@ Permission based view authorization Flask extension library
 Flask-Restrict does not interfere with your existing database tables
 so at anytime it's easy to opt out from using Flask-Restrict.
 
+## 🌱 Currently still in development
+
 ## Installation
 ```
 pip install flask-restrict
