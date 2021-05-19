@@ -65,7 +65,7 @@ restrict.update_entity(entity_model, perm_name="admin")
 Remove an entity with user permissionss
 ```python
 restrict.remove_entity(entity_model, perm_name="admin")
-
+```
 
 
 ```python
