@@ -14,13 +14,6 @@ restrict = Restrict()
 restrict.init()
 
 
-def restrict():
-    def inner(args):
-        pass
-    return inner
-
-
-@restrict()
 @test_app.route("/")
 def home():
     return {
@@ -30,7 +23,7 @@ def home():
 
 @pytest.fixture
 def client():
-    from tests.fixtures.models import CatModel
+    from tests.fixtures.models import UserModel, CatModel
 
     with test_app.test_client() as client:
         db.create_all()

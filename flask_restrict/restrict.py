@@ -1,3 +1,4 @@
+import functools
 from typing import Tuple, List, Union, TypedDict
 
 
@@ -33,10 +34,20 @@ class Restrict:
         :return:
         """
 
-    def view(self):
+    def permission(self):
         """
 
         :return:
         """
 
-
+    def modal(self, func=None):
+        sql_modal = func
+        tablename = getattr(sql_modal, "__tablename__", None)
+        modal_keys = sql_modal.__dict__.keys()
+        for m in modal_keys:
+            if isinstance(getattr(sql_modal, m), Role):
+                role: Role = getattr(sql_modal, m)
+        @functools.wraps
+        def inner():
+            pass
+        return inner

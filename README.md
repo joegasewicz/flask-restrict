@@ -16,7 +16,7 @@ pip install flask-restrict
 Setup your existing modals
 
 ```python
-@restrict.Modal
+@restrict.modal
 class UserModel(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer(), primary_key=True)
@@ -26,7 +26,7 @@ class UserModel(db.Model):
     user = restrict.Role(["can_view", "can_post"])
 
 
-@restrict.Modal
+@restrict.modal
 class CatModel(db.Model):
     __tablename__ = "cats"
     id = db.Column(db.Integer(), primary_key=True)
