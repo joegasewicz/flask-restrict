@@ -1,2 +1,54 @@
 ![flask restrict](assets/fr_logo.png?raw=true, "Flask Restrict")
 Permission based view authorization Flask extension library
+
+Flask-Restrict does not interfere with your existing database tables
+so at anytime it's easy to opt out from using Flask-Restrict.
+
+## Installation
+```
+pip install flask-restrict
+```
+
+# Quick Start
+
+Setup your existing modals
+
+```python
+@restrict.Modal
+class UserModel(db.Model):
+    __tablename__ = "users"
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String())
+    super = restrict.Role("all")
+    admin = restrict.Role(["can_view", "can_update", "can_delete"])
+    user = restrict.Role(["can_view", "can_post"])
+
+
+@restrict.Modal
+class CatModel(db.Model):
+    __tablename__ = "cats"
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String())
+    super = restrict.Role("all")
+    admin = restrict.Role(["can_view", "can_update", "can_delete"])
+    user = restrict.Role(["can_view", "can_post"])
+
+```
+And Create a user with the new permissions
+```python
+restrict.create_user(user, **{
+        "all": true, # Sets all permissions
+        "perm_name": "admin",
+        "perm_types=["can_view", "can_post"] # declare individual access types
+})
+```
+
+```python
+@restrict.permission()
+@test_app.route("/")
+def home():
+    return {
+        "data": "results",
+    }, 200
+    
+```

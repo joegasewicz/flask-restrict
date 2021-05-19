@@ -1,3 +1,0 @@
-class RestrictMixin:
-    pass
-
