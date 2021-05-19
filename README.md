@@ -38,11 +38,7 @@ class CatModel(db.Model):
 ```
 And Create a user with the new permissions
 ```python
-restrict.create_user(user, **{
-        "all": true, # Sets all permissions
-        "perm_name": "admin",
-        "perm_types=["can_view", "can_post"] # declare individual access types
-})
+restrict.create_user(user, perm_name="admin")
 ```
 
 ```python
